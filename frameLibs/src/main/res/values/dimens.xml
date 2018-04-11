@@ -1,0 +1,7 @@
+<resources>
+
+    <!--常规图片圆角度-->
+    <dimen name="top_view_height">47dp</dimen>
+
+
+</resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.taihe.photoselect">
+
+    <application>
+        <activity
+            android:name="photoselector.ui.PhotoSelectorActivity"
+            android:process=":picture"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="photoselector.ui.PhotoPreviewActivity"
+            android:process=":picture"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="photoselector.ui.BasePhotoPreviewActivity"
+            android:process=":picture"
+            android:screenOrientation="portrait" />
+    </application>
+</manifest>

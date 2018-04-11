@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">PhotoDemo</string>
+
+    <string name="str_allPicture">全部相册</string>
+</resources>

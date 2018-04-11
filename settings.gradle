@@ -1,0 +1,1 @@
+include ':app',':RxPermissions', ':Library_PhotoSelecter', ':jsBridge','frameLibs'

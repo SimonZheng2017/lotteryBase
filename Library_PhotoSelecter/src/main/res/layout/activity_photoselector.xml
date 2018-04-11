@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeeeee"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/behindheadview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <RelativeLayout
+            android:id="@+id/hl_head_ar"
+            android:layout_width="match_parent"
+            android:layout_height="47dp"
+            android:layout_alignParentTop="true"
+            android:background="@android:color/white">
+
+            <ImageView
+                android:id="@+id/bv_back_lh"
+                android:layout_width="45dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/select_default_press_back"
+                android:padding="13dp"
+                android:src="@mipmap/icon_arrow_left" />
+
+            <ImageView
+                android:id="@+id/btnSelectCarma"
+                android:layout_width="45dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/select_default_press_back"
+                android:padding="12dp"
+                android:src="@mipmap/bt_phone_takephoto" />
+
+            <TextView
+                android:id="@+id/tv_title_lh"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toLeftOf="@id/btnSelectCarma"
+                android:layout_toRightOf="@id/bv_back_lh"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:singleLine="true"
+                android:text="全部相册"
+                android:textColor="#333333"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/txt_upload"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="15dp"
+                android:gravity="center"
+                android:text="上传"
+                android:textColor="#e95254"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+
+        </RelativeLayout>
+
+        <GridView
+            android:id="@+id/gv_photos_ar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/hl_head_ar"
+            android:horizontalSpacing="@dimen/sticky_item_verticalSpacing"
+            android:listSelector="@null"
+            android:numColumns="3"
+            android:paddingBottom="@dimen/sticky_item_verticalSpacing"
+            android:paddingLeft="@dimen/sticky_item_verticalSpacing"
+            android:paddingRight="@dimen/sticky_item_verticalSpacing"
+            android:scrollbars="none"
+            android:verticalSpacing="@dimen/sticky_item_verticalSpacing" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_toolbar_ar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/collection_photo_toolbar_height"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/white">
+
+        <TextView
+            android:id="@+id/btnCancle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="取消"
+            android:textColor="#666666"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/btnSure"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textColor="@color/select_color"
+            android:textSize="16sp"
+            tools:text="完成(1)" />
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:id="@+id/tv_album_ar"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:drawableRight="@mipmap/icon_arrow_up"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="@string/str_allPicture"
+                android:textColor="#666666"
+                android:textSize="16sp" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tv_preview_ar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            android:enabled="false"
+            android:padding="10dp"
+            android:text="预览"
+            android:textColor="@drawable/btn_black_textcolor_selector"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+</LinearLayout>

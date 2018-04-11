@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/press_back"
+    android:gravity="center_vertical"
+    android:paddingBottom="10dp"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="10dp">
+
+    <photoselector.ui.PhotoSelectVIew
+        android:id="@+id/iv_album_la"
+        android:layout_width="@dimen/albumitem_content_height"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp" />
+
+    <TextView
+        android:id="@+id/tv_name_la"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/iv_album_la"
+        android:textColor="#666666"
+        android:textSize="16sp"
+        tools:text="显示照片" />
+
+    <TextView
+        android:id="@+id/tv_count_la"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/tv_name_la"
+        android:textColor="#666666"
+        android:textSize="14sp"
+        tools:text="100" />
+
+    <ImageView
+        android:id="@+id/iv_index_la"
+        android:layout_width="@dimen/albumitem_image_height"
+        android:layout_height="@dimen/albumitem_image_height"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:src="@mipmap/ic_choice_green" />
+
+</RelativeLayout>

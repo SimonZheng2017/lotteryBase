@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="id_half_refresh_view" type="id" />
+    <item name="id_listView_empty" type="id" />
+    <item name="id_recycler_empty" type="id" />
+    <item name="id_data" type="id" />
+
+</resources>

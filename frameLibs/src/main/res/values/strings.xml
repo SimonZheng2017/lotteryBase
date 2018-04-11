@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">frame</string>
+    <string name="error_network_unavailable">网络异常，请检查网络</string>
+    <string name="failed_reason">服务器异常</string>
+</resources>

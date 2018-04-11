@@ -1,0 +1,127 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        applicationId "base.asi.esat.simon.base"
+
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+
+        versionName rootProject.ext.versionName
+        versionCode rootProject.ext.versionCode
+
+        multiDexEnabled true
+//        manifestPlaceholders = [KEY_CHANNEL   : "Develop"]
+
+        ndk {
+            abiFilters 'armeabi', 'x86'//, 'mips64' ,'armeabi-v7a', 'x86_64', 'arm64-v8a'
+        }
+
+
+        //android 3.0  flavor
+        flavorDimensions "packageChannel"
+
+        setProperty("archivesBaseName", "frame")
+    }
+
+    signingConfigs {
+//        release {
+//            storeFile file("easternbloc.jks")
+//            storePassword "easternbloc#motorcycle"
+//            keyAlias "easternbloc"
+//            keyPassword "easternbloc"
+//
+//            v1SigningEnabled true
+//            v2SigningEnabled true
+//        }
+    }
+
+
+    buildTypes {
+        release {
+//            signingConfig signingConfigs.release
+
+            //Zip代码压缩优化
+            zipAlignEnabled proguard.toBoolean()
+            //移除无用资源
+            shrinkResources proguard.toBoolean()
+            minifyEnabled proguard.toBoolean()
+
+            def optfile = proguardOpt.toBoolean() ? 'proguard-android-optimize.txt' : 'proguard-android.txt'
+            proguardFiles getDefaultProguardFile(optfile), 'proguard-rules.pro'
+        }
+
+        debug {
+//            signingConfig signingConfigs.release
+        }
+
+    }
+
+
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "${defaultConfig.versionName}_256_${variant.productFlavors[0].name}.apk"
+        }
+    }
+
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
+
+    productFlavors {
+        Develop {}
+        product {}
+
+        productFlavors.all { flavor ->
+            if (!name.equalsIgnoreCase("Develop")) {
+//                manifestPlaceholders = [KEY_CHANNEL: name]
+            }
+        }
+    }
+
+    //Lambda表达式 jack编译工具
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+
+}
+
+//添加此代码可依赖aar包
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation deps.kotlin
+    implementation deps.constraint
+    implementation deps.multidex
+    implementation deps.appcompatv7
+    implementation deps.recyclerviewv7
+    implementation deps.supportDesign
+    //fps
+//    debugImplementation deps.debugTinydancer
+//    releaseImplementation deps.releaseTinydancer
+//    testImplementation deps.testTinydancer
+
+    implementation project(':frameLibs')
+    implementation project(':jsBridge')
+    implementation project(':Library_PhotoSelecter')
+}

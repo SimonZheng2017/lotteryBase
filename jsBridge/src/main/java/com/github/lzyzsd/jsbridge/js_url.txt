@@ -1,0 +1,10 @@
+帖子详情url
+http://m.xusong.starfans.com/app/posts/
+商品详情
+http://m.xusong.starfans.com/app/products/15
+新闻消息
+http://m.xusong.starfans.com/app/news/
+行程信息
+http://m.xusong.starfans.com/app/calendars/
+//活动
+http://m.xusong.starfans.com/app/events/

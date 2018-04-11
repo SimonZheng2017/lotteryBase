@@ -1,0 +1,112 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext.kotlin_version = '1.2.31'
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.1.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+        //拉取第三方依赖
+        maven { url "https://jitpack.io" }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+ext {
+    compileSdkVersion = 27
+    buildToolsVersion = "27.0.3"
+
+    minSdkVersion = 17
+    targetSdkVersion = 27
+
+    versionName = "1.0.0"
+    versionCode = 20180205
+
+    multidex = "1.0.2"
+    supportLibraryVersion = "27.0.2"
+    constraintVersion = "1.0.2"
+    NINE_OLD_ANDROIDS_VERSION = "2.4.0"
+    FAST_JSON_VERSION = "1.2.35"
+    FRESCO_VERSION = "1.+"
+    ScaleImageView_version = "3.9.0"
+    OKHTTP_VERSION = "3.+"
+    stethoVersion = "1.+"
+    butterknife_version = "8.+"
+    BGABanner_version = "2.1.7@aar"
+    progressVersion = "1.7"
+    Lottie_VERSION = "2.2.5"
+    tinydancer = "0.1.2"
+    JSOUP_VERSION = "1.9.2"
+    welcomeVersion = "1.4.1"
+    eventBusVersion = "3.0.0"
+    //Rx
+    rxjava_version = "2.+"
+    rxandroid_version = "2.+"
+    RxBinding_version = "2.+"
+}
+
+
+ext.deps = [
+        multidex             : "com.android.support:multidex:${multidex}",
+
+        appcompatv7          : "com.android.support:appcompat-v7:${supportLibraryVersion}",
+        supportDesign        : "com.android.support:design:$supportLibraryVersion",
+        recyclerviewv7       : "com.android.support:recyclerview-v7:${supportLibraryVersion}",
+        constraint           : "com.android.support.constraint:constraint-layout:${constraintVersion}",
+
+        fastjson             : "com.alibaba:fastjson:${FAST_JSON_VERSION}",
+        //material progress
+        materialishPro       : "com.pnikosis:materialish-progress:${progressVersion}",
+        // 注解
+        butterknife          : "com.jakewharton:butterknife:${butterknife_version}",
+        butterknifeProcessor : "com.jakewharton:butterknife-compiler:${butterknife_version}",
+        //banner
+        BgaBanner            : "cn.bingoogolapple:bga-banner:${BGABanner_version}",
+        //google浏览器调试（开发中使用）
+        stetho               : "com.facebook.stetho:stetho:${stethoVersion}",
+        stethoOkhttp3        : "com.facebook.stetho:stetho-okhttp3:${stethoVersion}",
+        //okhttp
+        loggingInterceptor   : "com.squareup.okhttp3:logging-interceptor:${OKHTTP_VERSION}",
+        okhttp               : "com.squareup.okhttp3:okhttp:${OKHTTP_VERSION}",
+        //页面流畅度 fps
+        debugTinydancer      : "com.github.brianPlummer:tinydancer:${tinydancer}",
+        releaseTinydancer    : "com.github.brianPlummer:tinydancer-noop:${tinydancer}",
+        testTinydancer       : "com.github.brianPlummer:tinydancer-noop:${tinydancer}",
+        //基础库
+        fresco               : "com.facebook.fresco:fresco:${FRESCO_VERSION}",
+        // 支持 GIF 动图，需要添加
+        animatedgif          : "com.facebook.fresco:animated-gif:${FRESCO_VERSION}",
+        // 支持 WebP （静态图+动图），需要添加
+        animatedwebp         : "com.facebook.fresco:animated-webp:${FRESCO_VERSION}",
+        webpsupport          : "com.facebook.fresco:webpsupport:${FRESCO_VERSION}",
+        subsamplingScaleImage: "com.davemorrissey.labs:subsampling-scale-image-view:${ScaleImageView_version}",
+        //移动动画
+        nineoldandroids      : "com.nineoldandroids:library:${NINE_OLD_ANDROIDS_VERSION}",
+        //解析hmtl文本
+        jsoup                : "org.jsoup:jsoup:${JSOUP_VERSION}",
+        //lottie（json动画）
+        lottie               : "com.airbnb.android:lottie:${Lottie_VERSION}",
+        //rx
+        rxjava               : "io.reactivex.rxjava2:rxjava:${rxjava_version}",
+        rxandroid            : "io.reactivex.rxjava2:rxandroid:${rxandroid_version}",
+        rxbinding            : "com.jakewharton.rxbinding2:rxbinding:${RxBinding_version}",
+        //引导页小圆点
+        welcome              : "com.stephentuso:welcome:${welcomeVersion}",
+        kotlin               : "org.jetbrains.kotlin:kotlin-stdlib-jre7:${kotlin_version}",
+        eventbus             : "org.greenrobot:eventbus:${eventBusVersion}"
+
+]
